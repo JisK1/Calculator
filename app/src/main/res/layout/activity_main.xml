@@ -53,34 +53,35 @@
             >
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/buttonClear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button"
+                android:text="C"
                 tools:layout_editor_absoluteX="36dp"
                 tools:layout_editor_absoluteY="148dp" />
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/buttonLPar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button" />
+                android:text="("
+                tools:ignore="HardcodedText" />
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/buttonRPar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button" />
+                android:text=")" />
 
             <Button
-                android:id="@+id/button19"
+                android:id="@+id/buttonDivide"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button" />
+                android:text="/" />
         </TableRow>
 
         <TableRow
@@ -88,110 +89,36 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             >
-
-            <Button
-                android:id="@+id/button20"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button"
-                tools:layout_editor_absoluteX="36dp"
-                tools:layout_editor_absoluteY="148dp" />
-
-            <Button
-                android:id="@+id/button21"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button22"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button23"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-
-            <Button
-                android:id="@+id/button24"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button"
-                tools:layout_editor_absoluteX="36dp"
-                tools:layout_editor_absoluteY="148dp" />
-
-            <Button
-                android:id="@+id/button25"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button26"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/button27"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button"
-                tools:layout_editor_absoluteX="36dp"
-                tools:layout_editor_absoluteY="148dp" />
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight=".25"
-                android:text="Button" />
 
             <Button
                 android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button" />
+                android:text="7"
+                tools:layout_editor_absoluteX="36dp"
+                tools:layout_editor_absoluteY="148dp" />
 
             <Button
                 android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button" />
+                android:text="8" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/buttontimes"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="X" />
         </TableRow>
 
         <TableRow
@@ -201,34 +128,108 @@
             >
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button"
+                android:text="4"
                 tools:layout_editor_absoluteX="36dp"
                 tools:layout_editor_absoluteY="148dp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button" />
+                android:text="5" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button" />
+                android:text="6" />
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/buttonMinius"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"
-                android:text="Button" />
+                android:text="-" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="1"
+                tools:layout_editor_absoluteX="36dp"
+                tools:layout_editor_absoluteY="148dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/buttonPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="+" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <Button
+                android:id="@+id/buttonBack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="Back"
+                tools:layout_editor_absoluteX="36dp"
+                tools:layout_editor_absoluteY="148dp" />
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="0" />
+
+            <Button
+                android:id="@+id/buttonDot"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="." />
+
+            <Button
+                android:id="@+id/buttonEquals"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:text="=" />
 
         </TableRow>
     </TableLayout>
