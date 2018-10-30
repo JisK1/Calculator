@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
 
     String equation = "";
 
     TextView equationText;
+    TextView resultText;
 
     //region Button Definitions
     Button zeroBtn;
@@ -43,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        equationText = findViewById(R.id.eqution);
+        equationText = findViewById(R.id.equation);
+
+        resultText = findViewById(R.id.result);
 
         equationText.setPaintFlags(equationText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
@@ -86,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
                 equation = "";
                 equationText.setText(equation);
-
+                resultText.setText(" = ");
             }
         });
 
@@ -207,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
         timesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                equation += "X";
+                equation += "*";
                 equationText.setText(equation);
             }
         });
@@ -240,10 +246,77 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(equation.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Is empty", Toast.LENGTH_LONG).show();
+                }else {
+
+                    if (isValid()) {
+                        Toast.makeText(getApplicationContext(), "Is valid", Toast.LENGTH_LONG).show();
+
+                        resultText.setText(" = " + eval());
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Is NOT valid", Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         });
 
     }
+
+    //returns true if the equation string is a valid expression.
+    //TODO MAKE IT SO THERE CAN BE ONLY ONE DOT IN A FLOATING POINT NUMBER!
+    private boolean isValid(){
+
+       Stack s = new Stack();
+
+       //check if the first or last character is an operator.
+       if(!equation.isEmpty() && (isOp(0) || isOp(equation.length() - 1))){
+            return false;
+       }
+
+       for(int i = 0; i < equation.length(); i++){
+           if(equation.charAt(i) == '('){
+               s.push(equation.charAt(i));
+           }else if(equation.charAt(i) == ')'){
+               if(!s.empty()) {
+                   s.pop();
+               }
+               else{
+                   return false;
+               }
+           }
+           if((i + 1 < equation.length()) &&  (isOp(i) && isOp(i+1)) || (equation.charAt(i) == '.'&& isOp(i+1))){
+                return false;
+           }
+
+       }
+       if(!s.empty()){
+           return  false;
+       }
+       return true;
+    }
+
+
+    //returns true if the string equation has a +,-,X,or/ at the index.
+    private  boolean isOp(int index){
+        if(equation.charAt(index) == '+' || equation.charAt(index) == '-' || equation.charAt(index) == '*'
+                || equation.charAt(index) == '/')
+        {
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+
+    private double eval(){
+
+        double result;
+        result = Double.parseDouble(equation);
+        return result;
+    }
+
 
 
 }
