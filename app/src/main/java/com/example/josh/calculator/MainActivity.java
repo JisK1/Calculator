@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Stack;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -247,16 +249,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(equation.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Is empty", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_LONG).show();
                 }else {
-
+                    //performs the calculation if the expression is valid.
                     if (isValid()) {
-                        Toast.makeText(getApplicationContext(), "Is valid", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Is valid", Toast.LENGTH_LONG).show();
 
-                        resultText.setText(" = " + eval());
+                        try {
+                            resultText.setText(" = " + eval());
+                        } catch (ScriptException e) {
+                            e.printStackTrace();
+                        }
+
+                        equation = "";
+                        equationText.setText(equation);
 
                     } else {
-                        Toast.makeText(getApplicationContext(), "Is NOT valid", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -274,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
        if(!equation.isEmpty() && (isOp(0) || isOp(equation.length() - 1))){
             return false;
        }
-
+       //loops through the string to make sure it is a valid expression.
        for(int i = 0; i < equation.length(); i++){
            if(equation.charAt(i) == '('){
                s.push(equation.charAt(i));
@@ -288,6 +297,16 @@ public class MainActivity extends AppCompatActivity {
            }
            if((i + 1 < equation.length()) &&  (isOp(i) && isOp(i+1)) || (equation.charAt(i) == '.'&& isOp(i+1))){
                 return false;
+           }
+           //checks if there is more then one dot in a number.
+           if(equation.charAt(i) == '.'){
+               int j = i + 1;
+               while(j <= equation.length() - 1 && !isOp(j) && equation.charAt(j) != '(' && equation.charAt(j) != ')'){
+                    if(equation.charAt(j) == '.'){
+                        return false;
+                    }
+                    j++;
+               }
            }
 
        }
@@ -309,13 +328,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //This calculates the value of the equation string by passing it through the rhino script engine
+    //where it will be read as a script expression and there for be able to be calculated.
+    private double eval() throws ScriptException {
 
-    private double eval(){
+        double result = 0.0;
 
-        double result;
-        result = Double.parseDouble(equation);
+        ScriptEngineManager mag = new ScriptEngineManager();
+        ScriptEngine engine = mag.getEngineByName("rhino");
+
+        result =  (Double)engine.eval(equation);
+
         return result;
     }
+
 
 
 
