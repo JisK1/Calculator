@@ -274,7 +274,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //returns true if the equation string is a valid expression.
-    //TODO MAKE IT SO THERE CAN BE ONLY ONE DOT IN A FLOATING POINT NUMBER!
     private boolean isValid(){
 
        Stack s = new Stack();
